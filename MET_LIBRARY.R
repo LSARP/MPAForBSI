@@ -360,7 +360,7 @@ metImage <- function( x, col, breaks, cCst = FALSE, rCst = FALSE, grid = TRUE ){
 		Colv <- NULL
 	if( rCst )
 		Rowv <- NULL
-	quartz(width = 2)
+	windows(width = 2)
 	w <- (3 + par('mar')[2L]) * par("csi") * 2.54
 	layout(matrix(c(2, 1), ncol = 2L), widths = c(1, lcm(w)))
 	par( mar = c( 5.1, 1, 4.1, 4.1), las = 1)
@@ -368,7 +368,7 @@ metImage <- function( x, col, breaks, cCst = FALSE, rCst = FALSE, grid = TRUE ){
 	plot.window(xlim = c(0, 1), ylim = range(breaks, na.rm = T), xaxs = "i", yaxs = "i")
 	rect(0, breaks[-length(breaks)], 1, breaks[-1L], col = col)
 	axis(4, at = breaks)
-	quartz()
+	windows()
 	out <- myheatmap(as.matrix(x), Colv = Colv, Rowv = Rowv, na.rm = T,
 			col = col, breaks = breaks, grid = grid )
 	return(invisible(out))	
