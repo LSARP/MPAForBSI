@@ -33,13 +33,14 @@ pDat <- pDat[idx_p,]
 # Remove NA data from frame
 pDat <- na.omit(pDat)                            # 1864 markers
 
+# Plot threshold heatmap
+METPlot(pDat, heat = T, scale = 'row', rCst = T, grid = F, cCst = F)
+
 # Write 
 METWrite(pDat)
 
 # Calculate the average threshold per species 
 mDat <- METStats(pDat, avgRep = T)      
-# Plot average threshold heatmap
-METPlot(mDat, heat = T, scale = 'row', rCst = T, grid = F, cCst = F)
 
 # Remove markers if the max average across all groups < 20000
 thresh_num <- 20000
